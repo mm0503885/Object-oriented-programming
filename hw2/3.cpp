@@ -33,12 +33,11 @@ node* Insert(node* p,int d)
 void Traverse(node* p)
 {
     cout<<"Traverse: ";
-    node *q = p;
-    while(q)
+    while(p)
         {
 
-            cout << q->value << " ";
-            q = q->next;
+            cout << p->value << " ";
+            p = p->next;
         }
     cout<<endl;
 }
@@ -62,7 +61,7 @@ node* Delete(node* p,int d)
         cout<<"Node with value "<<d<<" is not found!"<<endl;
     return p;
 }
-node* Unique(node* p)
+void Unique(node* p)
 {
     if(p->next!=NULL)
     {
@@ -86,7 +85,6 @@ node* Unique(node* p)
         if(p->next!=NULL)
         Unique(p->next);
     }
-    return p;
 }
 node* Slice(node* p,int a,int b)
 
@@ -102,12 +100,12 @@ node* Slice(node* p,int a,int b)
         }
         node *q=p,*r;
         while (q!=NULL)
-            if (q->value>b) break;
-        else
-        {
-            r=q;
-            q=q->next;
-        }
+          if (q->value>b) break;
+          else
+            {
+              r=q;
+              q=q->next;
+            }
         while (q!=NULL && q!=p)
         {
             r->next=q->next;
